@@ -1,0 +1,23 @@
+<div class="container main-frame" ng-init="init()">
+	<br />
+	<h1>DVDs Discount Package <small>or modify your own package</small></h1>
+	<hr>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="list-group">
+				<ul class="list-group dvds">
+					<li class="list-group-item dvd" ng-repeat="dvd in dvds" ng-click="toggleActive(dvd)" ng-class="{active:dvd.active}">
+						{{dvd.name}}<span>{{dvd.price | currency}}</span>
+					</li>
+				</ul>
+			</div>
+			<div class="total">
+				Total: <span>{{total() | currency}}</span>
+			</div>
+			<br />
+			<div class="pull-right">
+				<button type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-credit-card"></span> CHECK OUT NOW</button>
+			</div>
+		</div>
+	</div>
+</div>

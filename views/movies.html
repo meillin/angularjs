@@ -1,0 +1,91 @@
+<!-- <div class="container main-frame" ng-app="TVPremieresApp" ng-controller="mainController as main" ng-init="init()">-->
+<div class="container main-frame" ng-init="init()">
+	<div class="search-box row-fluid form-inline">
+        <label>Search: </label>
+        <!-- ng-model="fiterText associate with $scope.filterText in Controller -->
+        <input type="text" class="form-control" ng-model="filterText" placeholder="Search...">
+
+        <label>Genre: </label>
+        <select class="form-control" ng-model="genreFilter" ng-options="label for label in availableGenres">
+            <option value="">All</option>
+        </select>
+
+        <label>Order by: </label>
+        <select class="form-control" ng-model="orderField" ng-options="label for label in orderFields" class="input-medium"></select>
+        <select class="form-control" ng-model="orderReverse" class="input-medium">
+            <option value="true">Descending</option>
+            <option value="false">Ascending</option>
+        </select>
+    </div>
+
+    <div class="results-top"></div>
+    <div class="results-container">
+        <ul class="list-group">
+
+            <!-- "filter", "limitTo" are built-in filter functionalities of AngularJS -->
+        	<li class="list-group-item" ng-repeat="value in results | filter: filterText | isGenre:genreFilter | startFrom: currentPage*itemsPerPage | limitTo: itemsPerPage | orderBy:customOrder:orderReverse ">
+        		<div class="row">
+
+        			<div class="col-md-2">
+        			    <img ng-src="{{value.images.poster}}" class="img-responsive" />
+        				<div class="ratings">
+        					<span class="label label-default"><span class="glyphicon glyphicon-thumbs-up"></span> {{value.ratings.loved}}</span>
+        					<span class="label label-default"><span class="glyphicon glyphicon-thumbs-down"></span> {{value.ratings.hated}}</span>
+        					<span class="label label-important" ng-class="{'label-success': value.ratings.percentage >= 50}"><strong>%</strong> {{value.ratings.percentage}}
+        					</span>
+        				</div>	
+        			</div>
+
+        			<div class="col-md-6">
+                        <h3>{{value.title}}</h3>
+                        <p>{{value.overview}}</p>
+                        <hr>
+                        <button class="btn btn-primary" data-toggle="modal" data-target=".{{value.imdb_id}}" ng-click="showTrailer(value);target = value.imdb_id">Watch trailer</button>
+                        <!--  <button class="btn btn-primary" ng-click="showStats(value)">Statistics</button> 
+                        <button class="btn btn-info" ng-show="target" ng-click="target = false">Hide trailer</button>
+                        -->
+                        <div class="modal fade {{value.imdb_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <br>
+                                    <span class="glyphicon glyphicon-remove" data-dismiss="modal"></span>
+                                     <div class="modal-body" id="{{value.imdb_id}}">
+                                        <!-- Generated elements will be here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+
+                    <div class="col-md-4">
+                        <div class="fulldate pull-right label label-info">{{value.year}}</div>
+                        <ul class="show-info">
+                            <li><strong>Title: </strong>{{value.title}}</li>
+                            <li><strong>Genres: </strong>
+                                <span class="label label-default genre" ng-repeat="genre in value.genres track by $index" ng-click="setGenreFilter(genre)">{{genre}}
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+        		</div>
+        	</li>
+ 
+        </ul>
+    </div><!-- end of result-container -->
+    <hr>
+    <!-- hide pagination button when result is filtered by search form -->
+    <div class="row" ng-hide="filterText || genreFilter ">
+        <ul class="pager">
+            <li>
+                <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">Previous</button>
+            </li>
+            {{currentPage+1}}/{{numberOfPages()}}
+            <li>
+                <button ng-disabled="currentPage >= numberOfPages()-1" ng-click="currentPage=currentPage+1">Next</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="results-bottom"></div>
+</div>
