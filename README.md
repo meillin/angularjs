@@ -6,10 +6,10 @@ AngularJS learning project
 Useful Links
 
 <a href="http://prezi.com/l9yjqfjy1tat/the-world-of-angularjs/">Link to my PPT slide</a>
-
+<br />
 <a href="http://jsfiddle.net/Meilan/aF7hQ/5/">Example of filder my friends with AngularJS</a>
+<br />
 <a href="http://jsfiddle.net/Meilan/Ne5P8/536/">Example of factory and service</a>
-
 <br />
   <a href="http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript" target="_blank">Code organization |</a>
 	    <a href="https://github.com/marcoslin/angularAMD" target="_blank">AngularAMD |</a>
