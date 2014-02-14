@@ -13,6 +13,7 @@ Useful Links
 <br />
 
 Resources
+<br />
   <a href="http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript" target="_blank">Code organization |</a>
 	    <a href="https://github.com/marcoslin/angularAMD" target="_blank">AngularAMD |</a>
 	    <a href="http://tutorialzine.com/2013/08/learn-angularjs-5-examples/" target="_blank">AngularJS tutorial |</a>
