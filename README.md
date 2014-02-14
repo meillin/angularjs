@@ -14,6 +14,9 @@ Useful Links
 	<li>
 		<a href="http://jsfiddle.net/Meilan/Ne5P8/536/">Example of factory and service</a>
 	</li>
+	<li>
+		<a href="https://github.com/angular/angular.js/wiki/JsFiddle-Examples">More advanced examples</a>
+	</li>
 </ul>
 
 Resources
