@@ -9,7 +9,7 @@ Useful Links
 		<a href="http://prezi.com/l9yjqfjy1tat/the-world-of-angularjs/">Link to my PPT slide</a>
 	</li>
 	<li>
-		<a href="http://jsfiddle.net/Meilan/aF7hQ/5/">Example of filter my friends with AngularJS</a>
+		<a href="http://jsfiddle.net/Meilan/aF7hQ/5/">Example of filtering people with AngularJS</a>
 	</li>
 	<li>
 		<a href="http://jsfiddle.net/Meilan/Ne5P8/536/">Example of factory and service</a>
